@@ -1,0 +1,7 @@
+SECTION loader vstart=0x600
+mov sp,0x600
+push byte 0x7
+push word 0x8
+push dword 0x9
+times 510-($-$$) db 0
+db 0x55,0xaa

@@ -24,6 +24,6 @@ mov cx,0x000c
 int 0x10
 
 jmp $
-message db "1 MBR!"
+message db "1 MBR 2024!"
 times 510-($-$$) db 0
 db 0x55,0xaa

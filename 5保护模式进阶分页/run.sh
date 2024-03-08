@@ -1,6 +1,11 @@
-E:\SoftwareWorkplace\project\Assembly\Nasm\保护模式进阶分页
-D:\Development\Bochs2.6.8
+#!/bin/bash
+echo 
+echo "========bochs模拟器 启动开始========"
+nasm mbr.s -I include -o bin/mbr.o 
+nasm loader.s -I include -o bin/loader.o
 
-dd if=E:\SoftwareWorkplace\project\Assembly\Nasm\保护模式进阶分页\bin\mbr.o of=D:\Development\Bochs2.6.8\hd60M.img bs=512 count=1 conv=notrunc
-
-dd if=E:\SoftwareWorkplace\project\Assembly\Nasm\保护模式进阶分页\bin/loader.o of=D:\Development\Bochs2.6.8\hd60M.img seek=2 bs=512 count=4 conv=notrunc
+dd if=bin/mbr.o of=/home/xue/Desktop/bochs/hd60M.img bs=512 count=1 conv=notrunc
+dd if=bin/loader.o of=/home/xue/Desktop/bochs/hd60M.img seek=2 bs=512 count=4 conv=notrunc
+/home/xue/Desktop/bochs/bin/bochsdbg -f /home/xue/Desktop/bochs/bochsrc.disk
+echo "========bochs模拟器 运行结束========"
+echo 
